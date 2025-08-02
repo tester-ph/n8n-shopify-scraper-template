@@ -1,4 +1,7 @@
 # n8n shopify scraper template
+
+![alt text](https://github.com/tester-ph/n8n-shopify-scraper-template/blob/main/IMG_20250802_213959.jpg?raw=true)
+
 n8n Shopify Scraper Template
 A powerful and easy-to-use n8n template for scraping product data from any Shopify store! 🚀
 
