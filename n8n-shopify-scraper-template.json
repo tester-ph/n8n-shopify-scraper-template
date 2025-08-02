@@ -1,0 +1,460 @@
+{
+  "name": "ShopifyScrapeChecker-CSV-GOOGLE_DRIVE",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://shopify-scrape-checker.com/check/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US,en;q=0.9,de;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "cookie",
+              "value": "csrftoken=8odjiyLyEb5OqkBSGg3d5E2lCU9A0HLG;cf_clearance=SnI4a7XYSYN1dI9dRlGu7FT6COAjIBuUAdmj1ZZhDME-1753306648-1.2.1.1-gs2mUVW05QqnQadl5PQzyDZvV_FkRQfQOwJR_kVq_3yUqWTDnohhXpArQ0aWdwLe.R8VJJI1OQqv.oNmE6J04fb0HRan0qdUG2A6soOp4JmzQjnjrpnRaEoe7.pW03tTLsbnR8Mc1r_noMp05VRAczByaqKQH.dNoEJ9An0gOji1ckQDu0JSabKAZIFq3KxFI6325pKPmGumVwOV514fm6RX.6H5GmG4hIGn0yj11J2NnAmB9PzQaiX1U2C1Iq0J;"
+            },
+            {
+              "name": "origin",
+              "value": "https://shopify-scrape-checker.com"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "referer",
+              "value": "https://shopify-scrape-checker.com/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"123\", \"Not:A-Brand\";v=\"8\""
+            },
+            {
+              "name": "sec-ch-ua-arch",
+              "value": "\"arm\""
+            },
+            {
+              "name": "sec-ch-ua-bitness",
+              "value": "\"64\""
+            },
+            {
+              "name": "sec-ch-ua-full-version",
+              "value": "\"123.0.6312.122\""
+            },
+            {
+              "name": "sec-ch-ua-full-version-list",
+              "value": "\"Chromium\";v=\"123.0.6312.122\", \"Not:A-Brand\";v=\"8.0.0.0\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-model",
+              "value": "\"\""
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            },
+            {
+              "name": "sec-ch-ua-platform-version",
+              "value": "\"6.2.1\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "x-csrftoken",
+              "value": "zaRg0XTRocIuex3TjaAs9uAny13PjpvzxoUp8lufSdD8uHuBPgtv4Ysy0L2f9W65"
+            },
+            {
+              "name": "SSC-Activation-Token"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"url\": \"https://ampow.com\",\n  \"activation_token\": \"\",\n  \"csrfmiddlewaretoken\": \"zaRg0XTRocIuex3TjaAs9uAny13PjpvzxoUp8lufSdD8uHuBPgtv4Ysy0L2f9W65\",\n  \"shopify_csv_enabled\": true\n}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -608,
+        -256
+      ],
+      "id": "792f0391-408e-408d-9e06-3f407ef2bd64",
+      "name": "GET TASK ID"
+    },
+    {
+      "parameters": {
+        "url": "=https://shopify-scrape-checker.com/task_info/{{ $data.data.parseJson().task_id}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US,en;q=0.9,de;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "cookie",
+              "value": "csrftoken=8odjiyLyEb5OqkBSGg3d5E2lCU9A0HLG;cf_clearance=II6FpHS4nkNDWM8cghM_F4IMD4t_4yAJkDMZNPuLtHk-1753314582-1.2.1.1-QxYCjHTusbQTW2CZWZH5V9uc8JJw9trXanEJ09SoeWVlfyzgc5bnEVCwYsWuB2.w3k7mwe3nnMI5QC.vZSABI58kOUs0bbvmQu.wZdtitzmyhRlrvILtWuoChMoTm6TezGRPqx6hG86hRX2ivNl6NSmNL5LtEDZYf.Iy8vmue3GQnliyCxFGbSvJfzqFpzkHyfGVOfN_ynxuJGY8suuDewrmppAGbE5rQR0I8n6cmesusYcaTHQS89g03UPNHWBT;"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "referer",
+              "value": "https://shopify-scrape-checker.com/result/7602789fb104103b23a30827c9b450faa0ffc92435bdc8e6649df2f61e6dee31ee630b7034c0fad7131d0d63777f42e8753d96345fecb67de25ef7d96dbe86e8/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"123\", \"Not:A-Brand\";v=\"8\""
+            },
+            {
+              "name": "sec-ch-ua-arch",
+              "value": "\"arm\""
+            },
+            {
+              "name": "sec-ch-ua-bitness",
+              "value": "\"64\""
+            },
+            {
+              "name": "sec-ch-ua-full-version",
+              "value": "\"123.0.6312.122\""
+            },
+            {
+              "name": "sec-ch-ua-full-version-list",
+              "value": "\"Chromium\";v=\"123.0.6312.122\", \"Not:A-Brand\";v=\"8.0.0.0\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-model",
+              "value": "\"\""
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            },
+            {
+              "name": "sec-ch-ua-platform-version",
+              "value": "\"6.2.1\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        -256
+      ],
+      "id": "d367c586-1ef7-4927-8b7c-dddff823d656",
+      "name": "CHECK IF TASK IS FINISHED",
+      "retryOnFail": true,
+      "maxTries": 5
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5e264607-b02f-49f1-846c-302034e58046",
+              "leftValue": "={{ $json.task_is_finished }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -256
+      ],
+      "id": "e6b9769d-a2d1-414d-bb23-f2cd3e9900ce",
+      "name": "REQUEST AGAIN IF TASK NOT FINISHED"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -752,
+        -256
+      ],
+      "id": "dd586f70-5b56-4f21-aff8-fb8a2e09ee94",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "content": "## Automate Shopify scraping via n8n",
+        "height": 640,
+        "width": 1184,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        -464
+      ],
+      "id": "e6fa33e4-e90e-4448-ac07-b3144253d8f1",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Save scraped data to personal Google drive",
+        "height": 640,
+        "width": 560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        -464
+      ],
+      "id": "4949a049-b89a-4fec-a176-369de032907b",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "N8n SHOPIFY PRODUCTS SCRAPING ",
+        "height": 80,
+        "width": 1520,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        -560
+      ],
+      "id": "736b6d7a-ea60-4353-bc03-f5a878d752b9",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "myCsvFile",
+        "name": "={{$now}}.csv",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        448,
+        -272
+      ],
+      "id": "02899711-b131-46be-8899-c979e8280acb",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "9gOJzhU0V1s7d4Cu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://shopify-scrape-checker.com/download/{{ $json.task_id }}/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "SSC-Activation-Token"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        32,
+        -272
+      ],
+      "id": "023dc229-ac2c-42a7-a8fd-1be418d42af8",
+      "name": "GET CSV FROM JSON RESPONSE"
+    },
+    {
+      "parameters": {
+        "jsCode": "// This function will be called for each item in the input.\nfor (const item of $input.all()) {\n  // Get the CSV string from the \"data\" key.\n  const csvString = item.json.data;\n\n  // Check if the data exists to prevent errors.\n  if (csvString) {\n    // Convert the CSV string to a Buffer.\n    const buffer = Buffer.from(csvString, 'utf8');\n\n    // Create a unique filename (optional, but good practice).\n    const fileName = `output_${Date.now()}.csv`;\n\n    // Create the n8n binary object.\n    const binaryFile = {\n      data: buffer,\n      fileName: fileName,\n      mimeType: 'text/csv'\n    };\n\n    // Add the binary file to the item.\n    // The key \"binary\" is a special n8n property.\n    item.binary = {\n      // You can name the binary file property whatever you want.\n      // e.g., 'myCsvFile' will be the key in the next node's $binary.\n      myCsvFile: binaryFile\n    };\n  }\n}\n\n// Return the modified items.\nreturn $input.all();\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        -272
+      ],
+      "id": "d2169b40-a10d-4eb6-8ed9-d01f7d1677be",
+      "name": "Convert CSV string to CSV file"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "GET TASK ID": {
+      "main": [
+        [
+          {
+            "node": "CHECK IF TASK IS FINISHED",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CHECK IF TASK IS FINISHED": {
+      "main": [
+        [
+          {
+            "node": "REQUEST AGAIN IF TASK NOT FINISHED",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REQUEST AGAIN IF TASK NOT FINISHED": {
+      "main": [
+        [
+          {
+            "node": "GET CSV FROM JSON RESPONSE",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CHECK IF TASK IS FINISHED",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "GET TASK ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET CSV FROM JSON RESPONSE": {
+      "main": [
+        [
+          {
+            "node": "Convert CSV string to CSV file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert CSV string to CSV file": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "65ab3262-5f03-4e16-b612-74144b321a23",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4297fd3e3f4959bd4e254342098c377d046b2ebdf10736acbb8e7b6614cc31d6"
+  },
+  "id": "wfCxp18GE7NjAf1k",
+  "tags": []
+}
